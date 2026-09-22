@@ -1,0 +1,4 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="40" fill="#0f0f0f" />
+  <text x="128" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="120" letter-spacing="-5" fill="#ffffff" text-anchor="middle">TB<tspan fill="#ef4444">.</tspan></text>
+</svg>

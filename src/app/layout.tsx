@@ -1,5 +1,11 @@
 import './globals.css';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://tharulbandara.com'),
+};
+
 export default function RootLayout({
   children,
 }: {

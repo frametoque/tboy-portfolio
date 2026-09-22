@@ -1,4 +1,4 @@
-import generateStylesheetObject from '@/common/generateStylesheetsObject';
+
 import Lines from '@/components/common/Lines';
 import ProgressScroll from '@/components/common/ProgressScroll';
 import LoadingScreen from '@/components/common/loader';
@@ -19,13 +19,6 @@ export const metadata = {
   title: 'Tharul Bandara | Photographer | Graphics Designer | Editor',
   description: 'Tharul Bandara - Professional Photographer, Graphics Designer, and Editor. Co-Founder of Frametoque Digital Media.',
   keywords: 'Tharul Bandara, Photographer, Graphics Designer, Editor, Frametoque Digital Media, UI/UX Designer',
-  icons: {
-    other: generateStylesheetObject([
-      '/assets/css/plugins.css',
-      '/assets/css/style.css',
-      'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap',
-    ]),
-  },
 };
 
 export default function Home() {

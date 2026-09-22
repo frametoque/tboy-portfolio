@@ -95,7 +95,7 @@ function Navbar() {
             href="#contact"
             className="butn butn-sm butn-bg bg-red-600 hover:bg-red-700 text-white radius-5 border-red-600 hover:border-red-700"
           >
-            <span className="text">Let&apos;s contact</span>
+            <span className="text">Let's Connect</span>
           </Link>
         </div>
       </div>

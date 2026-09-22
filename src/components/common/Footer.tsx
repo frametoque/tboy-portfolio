@@ -33,8 +33,8 @@ function Footer() {
             tharul@frametoque.com
           </Link>
           <span className="hidden sm:block text-gray-700">|</span>
-          <Link href="tel:+94778609356" className="text-gray-400 hover:text-red-500 transition-colors duration-300">
-            +94 77 860 9356
+          <Link href="tel:+94758609356" className="text-gray-400 hover:text-red-500 transition-colors duration-300">
+            +94 75 860 9356
           </Link>
         </div>
 

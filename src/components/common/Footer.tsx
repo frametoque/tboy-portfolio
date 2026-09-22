@@ -42,8 +42,8 @@ function Footer() {
         <ul className="flex items-center gap-4 mb-20">
           {[
             { icon: 'facebook-f', url: 'https://facebook.com/bandara.tharul' },
-            { icon: 'instagram', url: 'https://instagram.com/bandara.tharul' },
-            { icon: 'whatsapp', url: 'https://wa.me/94778609356' }
+            { icon: 'instagram', url: 'https://instagram.com/bandara.psd' },
+            { icon: 'whatsapp', url: 'https://wa.me/94758609356' }
           ].map((social, i) => (
             <li key={i}>
               <Link 

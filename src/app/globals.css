@@ -154,4 +154,20 @@ html {
   animation: loaderHeadingFade 1.2s ease forwards !important;
 }
 
+/* Sticky Header Enforcement (stick flush to top at all times without gap or transform offset) */
+nav.navbar,
+.navbar,
+.navbar.nav-scroll,
+.navbar.nav-crev.nav-scroll {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+}
+
+
 

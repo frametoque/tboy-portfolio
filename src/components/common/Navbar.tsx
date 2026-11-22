@@ -16,10 +16,20 @@ function Navbar() {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg backdrop-blur-xl bg-black/40 border-b border-white/5 transition-all duration-300 ${
-        navScroll ? 'nav-scroll py-3' : 'py-5'
+      className={`navbar navbar-expand-lg fixed top-0 left-0 right-0 w-full transition-all duration-300 z-50 ${
+        navScroll
+          ? 'bg-[#0f0f0f]/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-lg'
+          : 'bg-black/40 backdrop-blur-md border-b border-white/5 py-5'
       }`}
-      style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 999 }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        width: '100%',
+        zIndex: 999,
+        transform: 'none',
+      }}
     >
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
         <Link

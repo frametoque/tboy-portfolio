@@ -83,3 +83,35 @@ html {
   }
 }
 
+/* Mobile Hero View Enhancements */
+@media screen and (max-width: 991px) {
+  .header-personal {
+    background-position: 85% center !important;
+  }
+  .header-personal .mobile-fade-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 15, 15, 0.45) 0%,
+      rgba(15, 15, 15, 0.78) 35%,
+      rgba(15, 15, 15, 0.85) 65%,
+      rgba(15, 15, 15, 0.65) 100%
+    );
+    z-index: 3;
+    pointer-events: none;
+    display: block;
+  }
+  .header-personal .caption {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .header-personal .mobile-fade-overlay {
+    display: none !important;
+  }
+}
+

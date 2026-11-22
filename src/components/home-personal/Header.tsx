@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ function Header() {
     return () => clearInterval(interval);
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const tl = gsap.timeline();
     tl.fromTo('.header', { y: 200 }, { y: 0 }, '+=2.5');
     tl.fromTo(
@@ -39,6 +39,9 @@ function Header() {
       data-overlay-dark="2"
       style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden' }}
     >
+      {/* Mobile Fade Overlay for Text Readability */}
+      <div className="mobile-fade-overlay" aria-hidden="true"></div>
+
       {/* Pulsing Red Glow */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-red-500/10 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2 animate-pulse" style={{ animationDuration: '4s' }}></div>
 

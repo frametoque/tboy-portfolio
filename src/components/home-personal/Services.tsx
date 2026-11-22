@@ -34,8 +34,6 @@ function Services() {
   return (
     <section id="services" className="services-clas relative overflow-hidden">
       <div className="container section-padding">
-        
-        {/* Header */}
         <motion.div 
           className="mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -51,7 +49,6 @@ function Services() {
           </h3>
         </motion.div>
 
-        {/* Services Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           variants={containerVariants}

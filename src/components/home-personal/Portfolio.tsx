@@ -43,7 +43,6 @@ const VideoItem = ({ src }: { src: string }) => {
 function Portfolio() {
   const [filter, setFilter] = useState('*');
 
-  // Removed arbitrary 'col' definitions, Masonry handles columns automatically.
   const designs = [
     { src: '/designs/nalanda-college.jpg', category: 'manipulation', type: 'image' },
     { src: '/designs/untitled-1.png', category: 'branding', type: 'image' },

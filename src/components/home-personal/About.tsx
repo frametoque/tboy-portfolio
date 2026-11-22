@@ -12,7 +12,6 @@ function About() {
 
       <div className="container">
         <div className="row items-center gap-y-12">
-          {/* Image Column */}
           <motion.div
             className="col-lg-5"
             initial={{ opacity: 0, x: -50 }}
@@ -32,7 +31,6 @@ function About() {
             </div>
           </motion.div>
 
-          {/* Text Column */}
           <motion.div
             className="col-lg-6 offset-lg-1"
             initial={{ opacity: 0, x: 50 }}
@@ -50,8 +48,6 @@ function About() {
               </h3>
 
               <div className="w-full">
-                <span className="uppercase tracking-[0.2em] text-[11px] font-bold text-red-500 mb-6 block text-center">
-                </span>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {[
                     { name: 'Illustrator' },

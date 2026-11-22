@@ -169,5 +169,14 @@ nav.navbar,
   -ms-transform: none !important;
 }
 
+/* Remove vertical divider lines on header */
+.navbar .logo:after,
+.navbar .contact-button:after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+
 
 

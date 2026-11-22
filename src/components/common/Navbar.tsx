@@ -19,7 +19,7 @@ function Navbar() {
       className={`navbar navbar-expand-lg fixed top-0 left-0 right-0 w-full transition-all duration-300 z-50 ${
         navScroll
           ? 'bg-[#0f0f0f]/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-lg'
-          : 'bg-black/40 backdrop-blur-md border-b border-white/5 py-5'
+          : 'bg-transparent backdrop-blur-none border-b border-transparent py-5'
       }`}
       style={{
         position: 'fixed',
@@ -29,6 +29,10 @@ function Navbar() {
         width: '100%',
         zIndex: 999,
         transform: 'none',
+        backdropFilter: navScroll ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: navScroll ? 'blur(20px)' : 'none',
+        backgroundColor: navScroll ? 'rgba(15, 15, 15, 0.9)' : 'transparent',
+        borderBottomColor: navScroll ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
       }}
     >
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">

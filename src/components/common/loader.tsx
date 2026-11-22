@@ -1,71 +1,50 @@
 'use client';
-import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
+import React, { useState, useEffect } from 'react';
 
 function LoadingScreen() {
+  const [isSliding, setIsSliding] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+
   useEffect(() => {
-    const svg = document.getElementById('svg');
-    const curve = 'M0 502S175 272 500 272s500 230 500 230V0H0Z';
-    const flat = 'M0 2S175 1 500 1s500 1 500 1V0H0Z';
+    const slideTimer = setTimeout(() => {
+      setIsSliding(true);
+    }, 1200);
 
-    const dismiss = () => {
-      const loader = document.querySelector('.loader-wrap') as HTMLElement;
-      if (loader) {
-        loader.style.display = 'none';
-        loader.style.zIndex = '-1';
-      }
-    };
-
-    const tl = gsap.timeline({
-      onComplete: dismiss,
-    });
-
-    tl.to('.loader-wrap-heading .load-text, .loader-wrap-heading .cont', {
-      delay: 1.2,
-      y: -100,
-      opacity: 0,
-      duration: 0.5,
-    });
-
-    if (svg) {
-      tl.to(svg, {
-        duration: 0.5,
-        attr: { d: curve },
-        ease: 'power2.easeIn',
-      }).to(svg, {
-        duration: 0.5,
-        attr: { d: flat },
-        ease: 'power2.easeOut',
-      });
-    }
-
-    tl.to('.loader-wrap', {
-      y: -1500,
-      duration: 0.8,
-    });
-
-    tl.to('.loader-wrap', {
-      zIndex: -1,
-      display: 'none',
-      duration: 0.1,
-    });
-
-    // Safety fallback: ensure loader is always dismissed even if animation is interrupted
-    const fallbackTimer = setTimeout(dismiss, 3500);
+    const dismissTimer = setTimeout(() => {
+      setIsDismissed(true);
+    }, 2000);
 
     return () => {
-      clearTimeout(fallbackTimer);
-      tl.kill();
+      clearTimeout(slideTimer);
+      clearTimeout(dismissTimer);
     };
   }, []);
 
+  if (isDismissed) {
+    return null;
+  }
+
   return (
-    <div className="loader-wrap">
+    <div
+      className="loader-wrap"
+      style={{
+        transition: 'transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease',
+        transform: isSliding ? 'translateY(-100%)' : 'translateY(0)',
+        pointerEvents: isSliding ? 'none' : 'auto',
+      }}
+    >
       <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
         <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
       </svg>
 
-      <div className="loader-wrap-heading">
+      <div
+        className="loader-wrap-heading"
+        style={{
+          transition: 'transform 0.4s ease, opacity 0.4s ease',
+          transform: isSliding ? 'translateY(-50px)' : 'translateY(0)',
+          opacity: isSliding ? 0 : 1,
+        }}
+      >
         <div className="load-text">
           {'THARUL BANDARA'.split('').map((char, index) => (
             <span key={index}>{char === ' ' ? '\u00A0' : char}</span>

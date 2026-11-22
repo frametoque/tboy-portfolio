@@ -19,12 +19,10 @@ function Header() {
 
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.fromTo('.header', { y: 200 }, { y: 0 }, '+=2.5');
     tl.fromTo(
       '.header .container',
-      { opacity: 0, translateY: 40 },
-      { opacity: 1, translateY: 0 },
-      '-=0'
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, delay: 1.2 }
     );
 
     return () => { tl.kill(); };

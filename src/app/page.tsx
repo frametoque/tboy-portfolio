@@ -1,5 +1,4 @@
 
-import Lines from '@/components/common/Lines';
 import ProgressScroll from '@/components/common/ProgressScroll';
 import LoadingScreen from '@/components/common/loader';
 import Footer from '@/components/common/Footer';
@@ -50,7 +49,6 @@ export default function Home() {
         <DisableInteractions />
         <LoadingScreen />
         <ProgressScroll />
-        {/* Lines component removed to clear vertical lines from the background */}
         <Navbar />
         <main className="main-bg o-hidden">
           <Header />
@@ -61,45 +59,8 @@ export default function Home() {
           <Marq2 />
         </main>
         <Footer />
-        <Script
-          src="/assets/js/ScrollTrigger.min.js"
-          strategy="beforeInteractive"
-        />
-
-        <Script strategy="beforeInteractive" src="/assets/js/plugins.js"></Script>
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/TweenMax.min.js"
-        ></Script>
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/charming.min.js"
-        ></Script>
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/countdown.js"
-        ></Script>
-
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/gsap.min.js"
-        ></Script>
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/splitting.min.js"
-        ></Script>
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/isotope.pkgd.min.js"
-        ></Script>
-        <Script
-          strategy="beforeInteractive"
-          src="/assets/js/imgReveal/imagesloaded.pkgd.min.js"
-        ></Script>
-
-        {/* <Script src="/assets/js/smoother-script.js" strategy="lazyOnload" /> */}
-
-        <Script src="/assets/js/scripts.js"></Script>
+        <Script strategy="lazyOnload" src="/assets/js/plugins.js"></Script>
+        <Script strategy="lazyOnload" src="/assets/js/scripts.js"></Script>
       </SmoothScroll>
     </body>
   );

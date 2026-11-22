@@ -18,8 +18,8 @@ function Navbar() {
     <nav
       className={`navbar navbar-expand-lg fixed top-0 left-0 right-0 w-full transition-all duration-300 z-50 ${
         navScroll
-          ? 'bg-[#0f0f0f]/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-lg'
-          : 'bg-transparent backdrop-blur-none border-b border-transparent py-5'
+          ? 'bg-[#0f0f0f]/90 backdrop-blur-xl border-b border-white/10 py-1.5 shadow-md'
+          : 'bg-transparent backdrop-blur-none border-b border-transparent py-2.5 md:py-3'
       }`}
       style={{
         position: 'fixed',
@@ -37,7 +37,7 @@ function Navbar() {
     >
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
         <Link
-          className="logo text-3xl md:text-4xl font-bold tracking-tighter text-white hover:text-white flex items-center"
+          className="logo text-2xl md:text-3xl font-bold tracking-tighter text-white hover:text-white flex items-center"
           href="#"
           style={{ fontFamily: 'Heebo, sans-serif' }}
         >
@@ -45,26 +45,26 @@ function Navbar() {
         </Link>
 
         <button
-          className="navbar-toggler lg:hidden text-white p-2 focus:outline-none"
+          className="navbar-toggler lg:hidden text-white p-1.5 focus:outline-none"
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           <span className="icon-bar">
-            <i className={`fas ${mobileOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
+            <i className={`fas ${mobileOpen ? 'fa-times' : 'fa-bars'} text-lg`}></i>
           </span>
         </button>
 
         <div
           className={`${
             mobileOpen ? 'block' : 'hidden'
-          } lg:flex lg:items-center lg:justify-center flex-grow w-full lg:w-auto mt-4 lg:mt-0`}
+          } lg:flex lg:items-center lg:justify-center flex-grow w-full lg:w-auto mt-3 lg:mt-0`}
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 list-none p-0 m-0">
+          <ul className="navbar-nav flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-7 list-none p-0 m-0">
             <li className="nav-item">
               <Link
-                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                className="nav-link text-white/90 hover:text-red-500 text-xs md:text-sm uppercase tracking-wider transition-colors"
                 href="#home"
                 onClick={() => setMobileOpen(false)}
               >
@@ -73,7 +73,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                className="nav-link text-white/90 hover:text-red-500 text-xs md:text-sm uppercase tracking-wider transition-colors"
                 href="#about"
                 onClick={() => setMobileOpen(false)}
               >
@@ -82,7 +82,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                className="nav-link text-white/90 hover:text-red-500 text-xs md:text-sm uppercase tracking-wider transition-colors"
                 href="#portfolio"
                 onClick={() => setMobileOpen(false)}
               >
@@ -91,7 +91,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                className="nav-link text-white/90 hover:text-red-500 text-xs md:text-sm uppercase tracking-wider transition-colors"
                 href="#services"
                 onClick={() => setMobileOpen(false)}
               >
@@ -104,7 +104,7 @@ function Navbar() {
         <div className="contact-button hidden lg:block">
           <Link
             href="#contact"
-            className="butn butn-sm butn-bg bg-red-600 hover:bg-red-700 text-white radius-5 border-red-600 hover:border-red-700 px-6 py-2.5 rounded-full text-sm font-medium transition-all"
+            className="butn butn-sm butn-bg bg-red-600 hover:bg-red-700 text-white radius-5 border-red-600 hover:border-red-700 px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all"
           >
             <span className="text">Let&apos;s Connect</span>
           </Link>

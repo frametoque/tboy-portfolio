@@ -115,3 +115,43 @@ html {
   }
 }
 
+/* Fail-safe Preloader Animations (CSS compositor guarantees exit even if JS/hydration fails) */
+@keyframes loaderSlideUp {
+  0%, 65% {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  90% {
+    transform: translateY(-100%);
+    opacity: 1;
+    pointer-events: none;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+@keyframes loaderHeadingFade {
+  0%, 50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.loader-wrap {
+  animation: loaderSlideUp 2.2s cubic-bezier(0.77, 0, 0.175, 1) forwards !important;
+}
+
+.loader-wrap .loader-wrap-heading {
+  animation: loaderHeadingFade 1.2s ease forwards !important;
+}
+
+

@@ -1,82 +1,96 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 function Navbar() {
-  function handleScroll() {
-    const bodyScroll = window.scrollY;
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-
-    if (bodyScroll > 300) navbar.classList.add('nav-scroll');
-    else navbar.classList.remove('nav-scroll');
-  }
+  const [navScroll, setNavScroll] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setNavScroll(window.scrollY > 150);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  function handleToggleNav() {
-    const collapse = document.querySelector('.navbar .navbar-collapse');
-    if (collapse) {
-      collapse.classList.toggle('show');
-    }
-  }
   return (
-    <nav className="navbar navbar-expand-lg backdrop-blur-xl bg-black/40 border-b border-white/5 transition-all duration-300">
-      <div className="container">
-        <Link className="logo text-3xl md:text-4xl font-bold tracking-tighter text-white hover:text-white" href="#" style={{ fontFamily: 'Heebo, sans-serif' }}>
+    <nav
+      className={`navbar navbar-expand-lg backdrop-blur-xl bg-black/40 border-b border-white/5 transition-all duration-300 ${
+        navScroll ? 'nav-scroll py-3' : 'py-5'
+      }`}
+      style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 999 }}
+    >
+      <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
+        <Link
+          className="logo text-3xl md:text-4xl font-bold tracking-tighter text-white hover:text-white flex items-center"
+          href="#"
+          style={{ fontFamily: 'Heebo, sans-serif' }}
+        >
           TB<span className="text-red-500">.</span>
         </Link>
 
         <button
-          className="navbar-toggler"
+          className="navbar-toggler lg:hidden text-white p-2 focus:outline-none"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
           aria-label="Toggle navigation"
-          onClick={handleToggleNav}
+          onClick={() => setMobileOpen(!mobileOpen)}
         >
           <span className="icon-bar">
-            <i className="fas fa-bars"></i>
+            <i className={`fas ${mobileOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
           </span>
         </button>
 
         <div
-          className="hidden lg:flex justify-center items-center flex-grow"
+          className={`${
+            mobileOpen ? 'block' : 'hidden'
+          } lg:flex lg:items-center lg:justify-center flex-grow w-full lg:w-auto mt-4 lg:mt-0`}
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav">
+          <ul className="navbar-nav flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 list-none p-0 m-0">
             <li className="nav-item">
-              <Link className="nav-link" href="#home">
+              <Link
+                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                href="#home"
+                onClick={() => setMobileOpen(false)}
+              >
                 <span className="rolling-text">Home</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#about">
+              <Link
+                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                href="#about"
+                onClick={() => setMobileOpen(false)}
+              >
                 <span className="rolling-text">About</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#portfolio">
+              <Link
+                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                href="#portfolio"
+                onClick={() => setMobileOpen(false)}
+              >
                 <span className="rolling-text">Portfolio</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#services">
+              <Link
+                className="nav-link text-white/90 hover:text-red-500 text-sm uppercase tracking-widest transition-colors"
+                href="#services"
+                onClick={() => setMobileOpen(false)}
+              >
                 <span className="rolling-text">Services</span>
               </Link>
             </li>
           </ul>
         </div>
 
-        <div className="contact-button">
+        <div className="contact-button hidden lg:block">
           <Link
             href="#contact"
-            className="butn butn-sm butn-bg bg-red-600 hover:bg-red-700 text-white radius-5 border-red-600 hover:border-red-700"
+            className="butn butn-sm butn-bg bg-red-600 hover:bg-red-700 text-white radius-5 border-red-600 hover:border-red-700 px-6 py-2.5 rounded-full text-sm font-medium transition-all"
           >
             <span className="text">Let&apos;s Connect</span>
           </Link>

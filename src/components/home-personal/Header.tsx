@@ -5,8 +5,9 @@ import { gsap } from 'gsap';
 import Link from 'next/link';
 import Image from 'next/image';
 import loadBackgroudImages from '@/common/loadBackgroudImages';
+const roles = ['a Photographer', 'a Graphics Designer', 'an Editor'];
+
 function Header() {
-  const roles = ['a Photographer', 'a Graphics Designer', 'an Editor'];
   const [roleIndex, setRoleIndex] = React.useState(0);
 
   useEffect(() => {

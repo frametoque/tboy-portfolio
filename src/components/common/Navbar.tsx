@@ -6,38 +6,21 @@ function Navbar() {
   function handleScroll() {
     const bodyScroll = window.scrollY;
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
 
     if (bodyScroll > 300) navbar.classList.add('nav-scroll');
     else navbar.classList.remove('nav-scroll');
   }
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  function handleDropdownMouseMove(event) {
-    event.currentTarget.querySelector('.dropdown-menu').classList.add('show');
-  }
 
-  function handleDropdownMouseLeave(event) {
-    event.currentTarget
-      .querySelector('.dropdown-menu')
-      .classList.remove('show');
-  }
   function handleToggleNav() {
-    if (
-      document
-        .querySelector('.navbar .navbar-collapse')
-        .classList.contains('show')
-    ) {
-      document
-        .querySelector('.navbar .navbar-collapse')
-        .classList.remove('show');
-    } else if (
-      !document
-        .querySelector('.navbar .navbar-collapse')
-        .classList.contains('show')
-    ) {
-      document.querySelector('.navbar .navbar-collapse').classList.add('show');
+    const collapse = document.querySelector('.navbar .navbar-collapse');
+    if (collapse) {
+      collapse.classList.toggle('show');
     }
   }
   return (
@@ -95,7 +78,7 @@ function Navbar() {
             href="#contact"
             className="butn butn-sm butn-bg bg-red-600 hover:bg-red-700 text-white radius-5 border-red-600 hover:border-red-700"
           >
-            <span className="text">Let's Connect</span>
+            <span className="text">Let&apos;s Connect</span>
           </Link>
         </div>
       </div>
